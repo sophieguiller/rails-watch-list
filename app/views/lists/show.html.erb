@@ -2,3 +2,5 @@
   <strong>Name:</strong>
   <%= @list.name %>
 </p>
+
+<p><%= link_to "Back", lists_path %> | <%= link_to "Bookmarks", list_bookmarks_path(@list) %></p>
