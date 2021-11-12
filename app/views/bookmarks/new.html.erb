@@ -1,4 +1,11 @@
-<h2>Add a new bookmark</h2>
+<nav class="navbar navbar-light bg-light">
+  <div>
+    <h2>Add a new movie</h2>
+  </div>
+  <div>
+    <%= link_to "Back", list_path(@list), class:'btn btn-outline-success' %>
+  </div>
+</nav>
 
 <%= simple_form_for([@list, @bookmark]) do |f| %>
   <div class="form-inputs m-3">
@@ -6,9 +13,7 @@
     <%= f.association :movie %>
   </div>
 
-  <div class="form-actions btn btn-primary m-3">
-    <%= f.button :submit %>
+  <div class="form-actions btn btn-success m-3">
+    <%= f.button :submit, class:'btn', style:'color: white' %>
   </div>
 <% end %>
-
-<p class="footer"><%= link_to "Back", list_path(@list) %></p>

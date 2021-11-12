@@ -1,21 +1,36 @@
+<nav class="navbar navbar-light bg-light">
+  <div>
+    <i class="fas fa-video"></i>
+  </div>
+  <div>
+    <%= link_to "Back", lists_path, class:'btn btn-outline-primary' %>
+    <%= link_to "New list", new_list_path, class:'btn btn-outline-primary'%>
+  </div>
+</nav>
+
 <div class="banner mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @list.photo.key, crop: :fill %>);">
   <div class="container">
     <h1><%= @list.name %></h1>
   </div>
 </div>
 
-<div class="card-trip">
-  <% @list.bookmarks.each do |bookmark| %>
-  <img src="https://source.unsplash.com/collection/190727/1600x900" />
-  <div class="card-trip-infos">
-    <div>
-        <%= bookmark.movie.title %> 
-    </div>
-    Comment: <%= bookmark.comment %>
-    <%= link_to "Destroy bookmark", bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" } %> </p> 
+<%= link_to "Add a movie", new_list_bookmark_path(@list), class:'btn btn-outline-success', id: 'add_movie_btn'%>
+
+<div class="container mb-3">
+  <div class="row">
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="col-4">
+        <div class="card-trip">
+        <img src="https://source.unsplash.com/1600x900/?movie" alt="">
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= bookmark.movie.title %></h2>
+              <p><%= bookmark.comment %></p>
+            </div>
+            <%= link_to "-", bookmark_path(bookmark), method: :delete, class:'btn btn-outline-danger' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
-
-
-<p class="footer"><%= link_to "Back", lists_path %> | <%= link_to "Add a bookmark", new_list_bookmark_path(@list) %></p>
