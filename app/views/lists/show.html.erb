@@ -1,7 +1,8 @@
-<p>
-  <strong>Name:</strong>
-  <%= @list.name %>
-</p>
+<div class="banner mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @list.photo.key, crop: :fill %>);">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
 
 <div class="card-trip">
   <% @list.bookmarks.each do |bookmark| %>
@@ -17,4 +18,4 @@
 </div>
 
 
-<p><%= link_to "Back", lists_path %> | <%= link_to "Add a bookmark", new_list_bookmark_path(@list) %></p>
+<p class="footer"><%= link_to "Back", lists_path %> | <%= link_to "Add a bookmark", new_list_bookmark_path(@list) %></p>

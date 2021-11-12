@@ -30,6 +30,9 @@ gem "autoprefixer-rails", "10.2.5"
 gem "font-awesome-sass", "~> 5.12.0"
 gem "simple_form"
 
+# Cloudinary
+gem 'cloudinary', '~> 1.16.0'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
