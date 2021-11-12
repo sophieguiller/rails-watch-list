@@ -1,2 +1,10 @@
 // Import page-specific CSS files here.
 @import "home";
+
+@import url('https://use.fontawesome.com/releases/v5.6.3/css/all.css');
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}

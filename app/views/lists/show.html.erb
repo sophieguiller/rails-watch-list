@@ -3,4 +3,18 @@
   <%= @list.name %>
 </p>
 
-<p><%= link_to "Back", lists_path %> | <%= link_to "Bookmarks", list_bookmarks_path(@list) %></p>
+<div class="card-trip">
+  <% @list.bookmarks.each do |bookmark| %>
+  <img src="https://source.unsplash.com/collection/190727/1600x900" />
+  <div class="card-trip-infos">
+    <div>
+        <%= bookmark.movie.title %> 
+    </div>
+    Comment: <%= bookmark.comment %>
+    <%= link_to "Destroy bookmark", bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" } %> </p> 
+  </div>
+  <% end %>
+</div>
+
+
+<p><%= link_to "Back", lists_path %> | <%= link_to "Add a bookmark", new_list_bookmark_path(@list) %></p>
